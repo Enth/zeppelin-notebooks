@@ -1,0 +1,691 @@
+{
+  "paragraphs": [
+    {
+      "text": "import com.geppetto.pintaillabs.enthspark.EnthSpark\nimport com.geppetto.pintaillabs.enthspark.EnthDataFrames\nimport com.geppetto.pintaillabs.enthspark.EnthDataFrame\nimport com.geppetto.pintaillabs.enthspark.EnthGraphFrame",
+      "dateUpdated": "May 17, 2017 12:51:36 PM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "scala"
+        },
+        "colWidth": 7.0,
+        "editorMode": "ace/mode/scala",
+        "editorHide": false,
+        "results": [
+          {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false
+            }
+          }
+        ],
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1495025496113_-1301514211",
+      "id": "20160608-015143_1607539760",
+      "dateCreated": "May 17, 2017 12:51:36 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "var enthSpark \u003d new EnthSpark()",
+      "dateUpdated": "May 17, 2017 12:51:36 PM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "scala"
+        },
+        "colWidth": 5.0,
+        "editorMode": "ace/mode/scala",
+        "editorHide": false,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1495025496113_-1301514211",
+      "id": "20170227-134458_825218109",
+      "dateCreated": "May 17, 2017 12:51:36 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "var enthDFs \u003d new EnthDataFrames(sc, sqlContext, enthSpark.search(\"horton year team\"))",
+      "dateUpdated": "May 17, 2017 12:51:36 PM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "scala"
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1495025496114_-1300359964",
+      "id": "20170503-173804_1129476561",
+      "dateCreated": "May 17, 2017 12:51:36 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "println(enthDFs.getEnthGraphFrame().getD3())",
+      "dateUpdated": "May 17, 2017 12:51:36 PM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "scala"
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1495025496114_-1300359964",
+      "id": "20170503-190815_1293279275",
+      "dateCreated": "May 17, 2017 12:51:36 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Page Rank",
+      "text": "/*  Dynamic version of PageRank returning a graph with vertex attributes containing the\n    PageRank and edge attributes containing the normalized edge weight.\n */\n  \nvar gf \u003d enthDFs.getEnthGraphFrame().getGraphFrame();  \nvar pr \u003d gf.pageRank\npr.resetProbability(0.15);\npr.tol(0.01)\nvar gfpr \u003d pr.run();\n\ngfpr.vertices.orderBy(desc(\"pagerank\")).show(300)\n\ngfpr.edges.orderBy(desc(\"weight\")).show(0)\n\n",
+      "dateUpdated": "May 17, 2017 12:51:36 PM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "scala"
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "editorHide": true,
+        "title": true,
+        "results": [
+          {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false
+            }
+          }
+        ],
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1495025496114_-1300359964",
+      "id": "20160608-015801_1561454370",
+      "dateCreated": "May 17, 2017 12:51:36 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Connected Components",
+      "text": "/*\nConnected components algorithm.\n\nComputes the connected component membership of each vertex and returns a DataFrame of vertex information with each vertex assigned a component ID.\n*/\nvar cc \u003d gf.connectedComponents\nvar df \u003d cc.run().orderBy(desc(\"component\"))\ndf.show(75)",
+      "dateUpdated": "May 17, 2017 12:51:36 PM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "scala"
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "editorHide": true,
+        "title": true,
+        "results": [
+          {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false
+            }
+          }
+        ],
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1495025496115_-1300744713",
+      "id": "20160608-015810_1194095274",
+      "dateCreated": "May 17, 2017 12:51:36 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "var enthDFs \u003d new EnthDataFrames(sc, sqlContext, enthSpark.search(\"who played baseball in 1968 by team\"))",
+      "dateUpdated": "May 17, 2017 12:51:36 PM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "colWidth": 8.0,
+        "editorMode": "ace/mode/scala",
+        "editorHide": false,
+        "results": [
+          {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300.0,
+              "optionOpen": true,
+              "setting": {
+                "multiBarChart": {}
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "Year",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "HR [test]",
+                  "index": 7.0,
+                  "aggr": "sum"
+                },
+                {
+                  "name": "RBI [test]",
+                  "index": 8.0,
+                  "aggr": "sum"
+                },
+                {
+                  "name": "SB [test]",
+                  "index": 9.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        ],
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1495025496115_-1300744713",
+      "id": "20170503-160216_262579603",
+      "dateCreated": "May 17, 2017 12:51:36 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Iterator",
+      "text": "val it \u003d enthDFs.iterator\nwhile(it.hasNext() ) {\n    var enthDF \u003d it.next\n    println(enthDF.getScore() + \" - \" + enthDF.getSchema())\n}",
+      "dateUpdated": "May 17, 2017 12:51:36 PM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "scala"
+        },
+        "colWidth": 4.0,
+        "editorMode": "ace/mode/scala",
+        "editorHide": false,
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1495025496115_-1300744713",
+      "id": "20170302-155528_978562599",
+      "dateCreated": "May 17, 2017 12:51:36 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "var enthGF \u003d new EnthGraphFrame(sc, sqlContext)\nval it \u003d enthDFs.iterator\nwhile(it.hasNext() ) {\n    var enthDF \u003d it.next\n    if (enthDF.getSchema() \u003d\u003d \"Hitting\")\n        enthGF.add(enthDF.getDataFrame(), enthDF.getSchemaID, enthDF.getSchema);\n    if (enthDF.getSchema() \u003d\u003d \"Pitching\")\n        enthGF.add(enthDF.getDataFrame(), enthDF.getSchemaID, enthDF.getSchema);\n}\nprintln(enthGF.getD3(-400,75));\n",
+      "dateUpdated": "May 17, 2017 12:51:36 PM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "editorHide": false,
+        "results": [
+          {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300.0,
+              "optionOpen": true,
+              "setting": {
+                "multiBarChart": {}
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "Year",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "HR [test]",
+                  "index": 7.0,
+                  "aggr": "sum"
+                },
+                {
+                  "name": "RBI [test]",
+                  "index": 8.0,
+                  "aggr": "sum"
+                },
+                {
+                  "name": "SB [test]",
+                  "index": 9.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        ],
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1495025496116_-1302668458",
+      "id": "20170130-233907_1571975121",
+      "dateCreated": "May 17, 2017 12:51:36 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "",
+      "dateUpdated": "May 17, 2017 12:51:36 PM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "scala"
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1495025496116_-1302668458",
+      "id": "20170504-173053_666459618",
+      "dateCreated": "May 17, 2017 12:51:36 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "",
+      "dateUpdated": "May 17, 2017 12:51:36 PM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "scala"
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1495025496116_-1302668458",
+      "id": "20170504-173050_724529814",
+      "dateCreated": "May 17, 2017 12:51:36 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "",
+      "dateUpdated": "May 17, 2017 12:51:36 PM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "scala"
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1495025496117_-1303053207",
+      "id": "20170504-173047_1737145461",
+      "dateCreated": "May 17, 2017 12:51:36 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Custon EnthGraph",
+      "text": "enthGF \u003d new EnthGraphFrame(sc, sqlContext)\nvar df \u003d enthDFs.get(0).getDataFrame()\nenthGF.add(df, \"my DF ID\", \"my custom graph frame\")\nprint(enthGF.getD3())",
+      "dateUpdated": "May 17, 2017 12:51:36 PM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "scala"
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "editorHide": true,
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1495025496117_-1303053207",
+      "id": "20170302-155525_1756265377",
+      "dateCreated": "May 17, 2017 12:51:36 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Breadth-first Search (BFS)",
+      "text": "//BFS find the shortest path between two vertices\n\nvar bfs \u003d gf.bfs\nbfs.toExpr(\"member \u003d \u0027Westfall\u0027\")\n//bfs.fromExpr(\"member \u003d \u0027Garcia\u0027\")\nbfs.fromExpr(\"member \u003d \u0027Harkness\u0027\")\nvar df \u003d bfs.run()\ndf.show()\n\nbfs.maxPathLength(2)\nvar df \u003d bfs.run()\ndf.show()  //return null set, we need more paths\n\n//NOTE: adding edgeFilter return a NULL set and takes a LONG time (1038 secs), avoid until we learn more about it.\n//reset\n/*var bfs \u003d gf.bfs\nbfs.toExpr(\"member \u003d \u0027Westfall\u0027\")\nbfs.fromExpr(\"member \u003d \u0027Harkness\u0027\")\nbfs.edgeFilter(\"source \u003d \u0027Austin - Declared Dangerous Dogs\u0027\")  //Allows us to choose a path(?)\nvar df \u003d bfs.run()\ndf.show()*/",
+      "dateUpdated": "May 17, 2017 12:51:36 PM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "scala"
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "editorHide": true,
+        "title": true,
+        "results": [
+          {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false
+            }
+          }
+        ],
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1495025496117_-1303053207",
+      "id": "20160608-015649_1292540874",
+      "dateCreated": "May 17, 2017 12:51:36 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Label Propagation Algorithm",
+      "text": "/*  Run static Label Propagation Algorithm for detecting communities in networks.\n    Each node in the network is initially assigned to its own community. \n    At every superstep, nodes send their community affiliation to all neighbors and update their state to the mode community affiliation of incoming messages.\n    LPA is a standard community detection algorithm for graphs. \n    Iinexpensive computationally, although (1) convergence is not guaranteed and (2) one can end up with trivial solutions (all nodes are identified into a single community).\n*/\n\nvar lpa \u003d gf.labelPropagation.maxIter(20)\nvar df \u003d lpa.run().orderBy(desc(\"label\"))\ndf.show(20)",
+      "dateUpdated": "May 17, 2017 12:51:36 PM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "scala"
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "editorHide": true,
+        "title": true,
+        "results": [
+          {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false
+            }
+          }
+        ],
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1495025496118_-1301898960",
+      "id": "20160608-015802_851806363",
+      "dateCreated": "May 17, 2017 12:51:36 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Shortest Path",
+      "text": "/*Computes shortest paths to the given set of landmark vertices.\n\nThe returned DataFrame contains all the original vertex information as well as one additional column:\n\n    distances (MapType[vertex ID type, IntegerType]): For each vertex v, a map containing the shortest-path distance to each reachable landmark vertex. \n    */\n   \n   //needs update \n//var sp \u003d gf.shortestPaths //landmarks\u003d[\"a\", \"d\"])\n//var z \u003d Array(\"sobu3acmaa1t\")\n//sp.landmarks(z)\n//sp.run().show()",
+      "dateUpdated": "May 17, 2017 12:51:36 PM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "scala"
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "editorHide": true,
+        "title": true,
+        "results": {},
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1495025496118_-1301898960",
+      "id": "20160608-015749_2016088128",
+      "dateCreated": "May 17, 2017 12:51:36 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Motif",
+      "text": "//build a motif\nvar motifs \u003d gf.find(\"(a)-[e1]-\u003e(b); (b)-[e2]-\u003e(c); (c)-[e3]-\u003e(d)\")\nmotifs.show(10);\n\n//a motif is DataFrame and thus can be filtered.  This is used by Enth to generate JSON (com.geppetto.enth.utility.GraphFrames.getJSON()) for D3 objects. The filter, in this case \u0027Jack\u0027 is the center of the D3 object.  \n\n//A call to Enth API https://voice.enth.com/EnthAPI/users/graph, the REQUEST parameter in this case, would be \u0027Jack\".\u0027\nmotifs.filter(\"a.member \u003d \u0027Jack\u0027\").show(10)",
+      "dateUpdated": "May 17, 2017 12:51:36 PM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "scala"
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "editorHide": true,
+        "title": true,
+        "results": [
+          {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false
+            }
+          }
+        ],
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1495025496118_-1301898960",
+      "id": "20160608-015532_489112910",
+      "dateCreated": "May 17, 2017 12:51:36 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Degrees",
+      "text": "//show inDegrees\ngf.inDegrees.show(10)\n\n//show outDegrees\ngf.outDegrees.show(10)\n\n//show degrees\ngf.degrees.show(10)",
+      "dateUpdated": "May 17, 2017 12:51:36 PM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "scala"
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "editorHide": true,
+        "title": true,
+        "results": [
+          {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false
+            }
+          }
+        ],
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1495025496119_-1302283709",
+      "id": "20160608-015534_624332854",
+      "dateCreated": "May 17, 2017 12:51:36 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Sub Graph",
+      "text": "var paths \u003d gf.find(\"(a)-[e]-\u003e(b)\").filter(\"a.member \u003d \u0027Jack\u0027\")\n  //.filter(\"e.relationship \u003d \u0027follow\u0027\")\\\n  //.filter(\"a.age \u003c b.age\")\n// The `paths` variable contains the vertex information, which we can extract:\n//e2 \u003d paths.select(\"e.src\", \"e.dst\", \"e.relationship\")\n\n// In Spark 1.5+, the user may simplify the previous call to:\nval e2 \u003d paths.select(\"e.*\")\n\n// Construct the subgraph (using the constructor vs apply()\nvar gf2 \u003d org.graphframes.GraphFrame(gf.vertices, e2)\n\n//NOTE we are bringing all VERTICES into gf2, no filters.  We really don\u0027t know the vertices to filter! I am not a big fan of this approach.\n\n//show the vertices\ngf2.vertices.show(10)\n\n//show the edges\ngf2.edges.show(10)",
+      "dateUpdated": "May 17, 2017 12:51:36 PM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "scala"
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "editorHide": true,
+        "title": true,
+        "results": [
+          {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false
+            }
+          }
+        ],
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1495025496119_-1302283709",
+      "id": "20160608-015651_227524679",
+      "dateCreated": "May 17, 2017 12:51:36 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Enth, Apache Spark and Graph Databases",
+  "id": "Enth, Apache Spark and Graph Databases",
+  "angularObjects": {
+    "2C2YWFD4A:shared_process": [],
+    "2C55F2RN6:shared_process": [],
+    "2C65Y2BSJ:shared_process": [],
+    "2C2ESGWN6:shared_process": [],
+    "2C2QWH6NJ:shared_process": [],
+    "2C5XSSZ5C:shared_process": [],
+    "2C6249DB2:shared_process": [],
+    "2C39ZTHFJ:shared_process": [],
+    "2C5ZVF5H4:shared_process": [],
+    "2C53N38A3:shared_process": [],
+    "2C2KGUXCC:shared_process": [],
+    "2C34UVAUJ:shared_process": [],
+    "2C2AJVK13:shared_process": [],
+    "2C3MJZU9V:shared_process": [],
+    "2C33TGBJR:shared_process": [],
+    "2C2Z78TCM:shared_process": [],
+    "2C4D36N3K:shared_process": [],
+    "2C4VXE4CD:shared_process": [],
+    "2C2CEMMR5:shared_process": []
+  },
+  "config": {
+    "looknfeel": "default"
+  },
+  "info": {}
+}

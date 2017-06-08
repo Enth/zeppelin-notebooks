@@ -1,0 +1,536 @@
+{
+  "paragraphs": [
+    {
+      "text": "import com.geppetto.pintaillabs.enthspark.EnthSpark\nimport com.geppetto.pintaillabs.enthspark.EnthDataFrames\nimport com.geppetto.pintaillabs.enthspark.EnthDataFrame\nimport com.geppetto.pintaillabs.enthspark.EnthGraphFrame",
+      "dateUpdated": "May 17, 2017 6:44:00 PM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "scala"
+        },
+        "colWidth": 5.0,
+        "editorMode": "ace/mode/scala",
+        "editorHide": false,
+        "results": [
+          {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false
+            }
+          }
+        ],
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1495046640421_-1229109060",
+      "id": "20160608-015143_1607539760",
+      "dateCreated": "May 17, 2017 6:44:00 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "var enthSpark \u003d new EnthSpark(\"http://private.enth.com:8080\")",
+      "dateUpdated": "May 17, 2017 6:44:00 PM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "scala"
+        },
+        "colWidth": 7.0,
+        "editorMode": "ace/mode/scala",
+        "editorHide": false,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1495046640422_-1227954813",
+      "id": "20170227-134458_825218109",
+      "dateCreated": "May 17, 2017 6:44:00 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "var enthDFs \u003d new EnthDataFrames(sc, sqlContext, enthSpark.search(\"outback lager sales\"))",
+      "dateUpdated": "May 17, 2017 6:44:00 PM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "editorHide": false,
+        "results": [
+          {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300.0,
+              "optionOpen": true,
+              "setting": {
+                "multiBarChart": {}
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "Year",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "HR [test]",
+                  "index": 7.0,
+                  "aggr": "sum"
+                },
+                {
+                  "name": "RBI [test]",
+                  "index": 8.0,
+                  "aggr": "sum"
+                },
+                {
+                  "name": "SB [test]",
+                  "index": 9.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        ],
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1495046640422_-1227954813",
+      "id": "20170130-233907_1571975121",
+      "dateCreated": "May 17, 2017 6:44:00 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "var enthDFs \u003d new EnthDataFrames(sc, sqlContext, enthSpark.search(\"outback lager sales demographics\"))",
+      "dateUpdated": "May 17, 2017 6:44:00 PM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "editorHide": false,
+        "results": [
+          {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300.0,
+              "optionOpen": true,
+              "setting": {
+                "multiBarChart": {}
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "Year",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "HR [test]",
+                  "index": 7.0,
+                  "aggr": "sum"
+                },
+                {
+                  "name": "RBI [test]",
+                  "index": 8.0,
+                  "aggr": "sum"
+                },
+                {
+                  "name": "SB [test]",
+                  "index": 9.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        ],
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1495046640423_-1228339562",
+      "id": "20170517-165641_479504012",
+      "dateCreated": "May 17, 2017 6:44:00 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Age Range Histogram",
+      "text": "z.show(enthDFs.get(0).getDataFrame());\n",
+      "dateUpdated": "May 17, 2017 6:44:00 PM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "scala"
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "title": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "multiBarChart": {}
+              },
+              "commonSetting": {},
+              "keys": [],
+              "groups": [],
+              "values": [
+                {
+                  "name": "0-4",
+                  "index": 12.0,
+                  "aggr": "sum"
+                },
+                {
+                  "name": "5-9",
+                  "index": 13.0,
+                  "aggr": "sum"
+                },
+                {
+                  "name": "10-14",
+                  "index": 14.0,
+                  "aggr": "sum"
+                },
+                {
+                  "name": "15-19",
+                  "index": 15.0,
+                  "aggr": "sum"
+                },
+                {
+                  "name": "20-24",
+                  "index": 16.0,
+                  "aggr": "sum"
+                },
+                {
+                  "name": "25-34",
+                  "index": 17.0,
+                  "aggr": "sum"
+                },
+                {
+                  "name": "35-44",
+                  "index": 18.0,
+                  "aggr": "sum"
+                },
+                {
+                  "name": "45-54",
+                  "index": 19.0,
+                  "aggr": "sum"
+                },
+                {
+                  "name": "55-59",
+                  "index": 20.0,
+                  "aggr": "sum"
+                },
+                {
+                  "name": "60-64",
+                  "index": 21.0,
+                  "aggr": "sum"
+                },
+                {
+                  "name": "65-74",
+                  "index": 22.0,
+                  "aggr": "sum"
+                },
+                {
+                  "name": "75-84",
+                  "index": 23.0,
+                  "aggr": "sum"
+                },
+                {
+                  "name": "85+",
+                  "index": 24.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1495046640423_-1228339562",
+      "id": "20170508-165150_1576774211",
+      "dateCreated": "May 17, 2017 6:44:00 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "enthDFs \u003d new EnthDataFrames(sc, sqlContext, enthSpark.search(\"outback lager sales weather\"))",
+      "dateUpdated": "May 17, 2017 6:44:00 PM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "editorHide": false,
+        "results": [
+          {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300.0,
+              "optionOpen": true,
+              "setting": {
+                "multiBarChart": {}
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "Year",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "HR [test]",
+                  "index": 7.0,
+                  "aggr": "sum"
+                },
+                {
+                  "name": "RBI [test]",
+                  "index": 8.0,
+                  "aggr": "sum"
+                },
+                {
+                  "name": "SB [test]",
+                  "index": 9.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        ],
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1495046640423_-1228339562",
+      "id": "20170508-125823_1808844181",
+      "dateCreated": "May 17, 2017 6:44:00 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "z.show(enthDFs.get(0).getDataFrame())",
+      "dateUpdated": "May 17, 2017 6:44:00 PM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "scala"
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1495046640424_-1230263306",
+      "id": "20170504-204129_1443183896",
+      "dateCreated": "May 17, 2017 6:44:00 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "enthDFs \u003d new EnthDataFrames(sc, sqlContext, enthSpark.search(\"outback lager sales when the temperature \u003e 68\"))",
+      "dateUpdated": "May 17, 2017 6:44:00 PM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "editorHide": false,
+        "results": [
+          {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300.0,
+              "optionOpen": true,
+              "setting": {
+                "multiBarChart": {}
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "Year",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "HR [test]",
+                  "index": 7.0,
+                  "aggr": "sum"
+                },
+                {
+                  "name": "RBI [test]",
+                  "index": 8.0,
+                  "aggr": "sum"
+                },
+                {
+                  "name": "SB [test]",
+                  "index": 9.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        ],
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1495046640424_-1230263306",
+      "id": "20170504-211051_1151617419",
+      "dateCreated": "May 17, 2017 6:44:00 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "enthDFs \u003d new EnthDataFrames(sc, sqlContext, enthSpark.search(\"outback lager sales djia\"));",
+      "dateUpdated": "May 17, 2017 6:44:00 PM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "scala"
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "editorHide": false,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1495046640424_-1230263306",
+      "id": "20170504-212104_1891786062",
+      "dateCreated": "May 17, 2017 6:44:00 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "",
+      "dateUpdated": "May 17, 2017 6:44:00 PM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "scala"
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1495046640425_-1230648055",
+      "id": "20170517-124052_2135990687",
+      "dateCreated": "May 17, 2017 6:44:00 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Enth, Apache Spark and Joins",
+  "id": "Enth, Apache Spark and Joins",
+  "angularObjects": {
+    "2C2YWFD4A:shared_process": [],
+    "2C55F2RN6:shared_process": [],
+    "2C65Y2BSJ:shared_process": [],
+    "2C2ESGWN6:shared_process": [],
+    "2C2QWH6NJ:shared_process": [],
+    "2C5XSSZ5C:shared_process": [],
+    "2C6249DB2:shared_process": [],
+    "2C39ZTHFJ:shared_process": [],
+    "2C5ZVF5H4:shared_process": [],
+    "2C53N38A3:shared_process": [],
+    "2C2KGUXCC:shared_process": [],
+    "2C34UVAUJ:shared_process": [],
+    "2C2AJVK13:shared_process": [],
+    "2C3MJZU9V:shared_process": [],
+    "2C33TGBJR:shared_process": [],
+    "2C2Z78TCM:shared_process": [],
+    "2C4D36N3K:shared_process": [],
+    "2C4VXE4CD:shared_process": [],
+    "2C2CEMMR5:shared_process": []
+  },
+  "config": {
+    "looknfeel": "default"
+  },
+  "info": {}
+}
