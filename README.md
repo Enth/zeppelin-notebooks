@@ -21,3 +21,41 @@ Once the edit mode is activated, scroll down until you find the **Dependencies S
 ![Enth Artifact Settings](https://raw.githubusercontent.com/Enth/zeppelin-notebooks/master/Enth-Spark-AI%20Installation/images/Artifact.png)
 
 As of this writing the current Snapshot is **com.geppetto.pintaillabs:enth-spark-AI:0.70-spark1.6-SNAPSHOT**, add this as the artifact, then select **Save**.  You will be asked if you are sure and if you want to restart the Spark Interpreter.  Select **OK**.
+
+### Adding the Snapshot Repository (optional) ###
+
+If you are using a SNAPSHOT version of Enth-Spark-AI, you will need to add the **Snapshot Repository**.  Scroll to the top of the Interpreter page and select **Repository**.
+
+![Enth Zeppelin Repository](https://raw.githubusercontent.com/Enth/zeppelin-notebooks/master/Enth-Spark-AI%20Installation/images/Repository.png)
+
+Next to you current Repositories you should see a **+**.  Select the **+** to add a repository.  The **ID** is "snapshots".  The **URL** is "https://oss.sonatype.org/content/repositories/snapshots/" and next to **Snapshot** select TRUE (because it is)!  Select **Add**.
+
+![Enth Zeppelin Repository](https://raw.githubusercontent.com/Enth/zeppelin-notebooks/master/Enth-Spark-AI%20Installation/images/NewRepository.png)
+
+You will need to restart your Zeppelin instance to complete the download and installation.
+
+You can also naviage to https://oss.sonatype.org/content/repositories/snapshots/com/geppetto/pintaillabs/enth-spark-AI to find the most current Snapshot version.
+
+### Test the Enth-Spark-AI installation! ###
+
+In a new notebook, add a new paragraph and type the following, then run the paragraph.  You should see the following.  The highlighting portion represents the JSON plan created by Enth to satisfy your search request.
+
+![Enth Zeppelin Repository](https://raw.githubusercontent.com/Enth/zeppelin-notebooks/master/Enth-Spark-AI%20Installation/images/Enth%20Success.png)
+
+To see some actual results...try the following.  
+
+![Enth Zeppelin Repository](https://raw.githubusercontent.com/Enth/zeppelin-notebooks/master/Enth-Spark-AI%20Installation/images/Results.png)
+
+### Troubleshooting ###
+
+1)  The first step in troubleshooting is to check the log!  Check [zeppelin home]/logs.  Look for 'Enth'.
+
+2)  If Zeppelin replies with "error:  obect geppetto is not a memeber of package com", as shown below, this is most likely an installation problem. 
+
+Check [zeppelin home]/local-repo/com/geppetto/pintaillabs/enth-spark-AI/[version].  The folder should exist and contains several files.  Try restarting, if that still fails, try to reinstall.
+
+![Enth Zeppelin Repository](https://raw.githubusercontent.com/Enth/zeppelin-notebooks/master/Enth-Spark-AI%20Installation/images/Error.png)
+
+3)  If you see "memory error"  in the logs or as a response to running your paragraph.  Check the memory available for your machine and check the amount allocated for Zeppelin.  Check the documentation for increasing memory for your version of Zeppelin. Look for 'zeppelin-env.sh'.
+
+![Enth Zeppelin Repository](https://raw.githubusercontent.com/Enth/zeppelin-notebooks/master/Enth-Spark-AI%20Installation/images/Memory%20Error.png)
