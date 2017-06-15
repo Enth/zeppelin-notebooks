@@ -17,7 +17,7 @@ Then, under Interpreter Settings, select **Interpreter** menu.
 
 Scroll down until you find the Spark Interpreter, then select **Edit**.
 
-[![Enth Interpreter Settings](https://raw.githubusercontent.com/Enth/zeppelin-notebooks/master/Enth-Spark-AI%20Installation/images/Interpreter.png)](https://creativecommons.org/publicdomain/zero/1.0/)
+[![Enth Interpreter Settings](https://raw.githubusercontent.com/Enth/zeppelin-notebooks/master/Enth-Spark-AI%20Installation/images/Interpreter.png)]
 
 Once the edit mode is activated, scroll down until you find the **Dependencies Section**.  Within the Dependencies Section you will **Artifacts**.
 
