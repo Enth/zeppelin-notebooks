@@ -6,7 +6,7 @@ Enth-Spark-AI provides access to Enth.  This notebook contains information on in
 
 ### Installing Enth-Spark-AI ###
 
-[![CC0](https://licensebuttons.net/p/zero/1.0/88x31.png)](https://creativecommons.org/publicdomain/zero/1.0/)
+[![CC0](https://raw.githubusercontent.com/Enth/zeppelin-notebooks/master/Enth-Spark-AI%20Installation/images/Interpreter.png)](https://creativecommons.org/publicdomain/zero/1.0/)
 
 First, we need access Zeppelin's Interpreter Settings using setting icon on upper right corner of the notebook.
 
