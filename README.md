@@ -1,6 +1,6 @@
 
 
-<img src="http://enth.com/Images/Enth%20Logo.png" alt="Enth" width="300px" height="100px"/>
+<img src="http://enth.com/Images/Enth%20Logo.png" alt="Enth" width="240px" height="88px"/>
 
 ## Enth-Spark-AI ##
 
