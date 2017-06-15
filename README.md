@@ -9,7 +9,7 @@ Enth-Spark-AI provides access to Enth.  This notebook contains information on in
 First, we need access Zeppelin's Interpreter Settings using setting icon on upper right corner of the notebook.
 
 
-![Enth Zeppelin Settings] (/Enth-Spark-AI%20Installation/images/Settings.png)
+![Enth Zeppelin Settings] (https://github.com/Enth/zeppelin-notebooks/blob/master/Enth-Spark-AI%20Installation/images/Settings.png)
 
 Then, under Interpreter Settings, select **Interpreter** menu. 
 
