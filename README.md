@@ -1,7 +1,7 @@
 
 # Welcome to Enth
 
-![Enth](http://enth.com/Images/Enth%20Logo.png)
+![Enth](http://enth.com/Images/Enth%20Logo.png =250x)
 
 Enth is **n-dimensional awareness of data**.   Enth crawls networks, including private networks looking for data, structured, open, elastic, relational, text,.. Enth doesn’t ‘download’ this data, instead Enth **scans the data** as part of a machine learning process, in which Enth creates an **awareness of data**.  Enth uses this awareness of data to orchestrate the acquisition and transformation of data into **Spark**.  In other words, Enth tells Spark where to find specific data and what to do with it.
 
